@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrégateur PQR - Actualités Régionales</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1><i class="fas fa-newspaper"></i> Agrégateur PQR</h1>
+            <p>Actualités de la Presse Quotidienne Régionale française</p>
+            <div class="header-actions">
+                <button id="refresh-btn" class="btn btn-primary">
+                    <i class="fas fa-sync-alt"></i> Actualiser
+                </button>
+                <div class="stats" id="stats">
+                    <span id="stats-text">Chargement...</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="container">
+            <button class="nav-btn active" onclick="showTopArticles()">
+                <i class="fas fa-star"></i> Top Articles
+            </button>
+            <button class="nav-btn" onclick="showRegions()">
+                <i class="fas fa-map-marked-alt"></i> Régions
+            </button>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Rechercher..." />
+                <button onclick="performSearch()" class="btn btn-secondary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main">
+        <div class="container">
+            <div id="loading" class="loading" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i>
+                <span>Chargement...</span>
+            </div>
+            
+            <div id="content">
+                <!-- Le contenu sera injecté ici -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de collecte -->
+    <div id="collect-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3><i class="fas fa-rss"></i> Collecte RSS en cours</h3>
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <div id="collect-status">Initialisation...</div>
+            <div id="collect-details"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Agrégateur PQR - 68 sources de presse régionale française</p>
+            <p>Dernière mise à jour: <span id="last-update">-</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
