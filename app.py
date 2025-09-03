@@ -23,14 +23,10 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__, static_folder='static', static_url_path='')
 CORS(app)
 
-# Configuration pour servir les fichiers statiques
+# Route principale pour servir l'index
 @app.route('/')
 def index():
     return send_from_directory(app.static_folder, 'index.html')
-
-@app.route('/<path:filename>')
-def static_files(filename):
-    return send_from_directory(app.static_folder, filename)
 
 # Configuration de la base de données
 DATABASE_URL = os.environ.get('DATABASE_URL')
